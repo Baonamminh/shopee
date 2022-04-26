@@ -53,7 +53,7 @@
     background-color: var(--white-color);
     border-radius: 2px;
     width: 160px;
-    z-index: 1;
+    z-index: 2;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
     display: none;
 }
@@ -231,7 +231,7 @@
     transform-origin: calc(100% - 26px) top;
     animation: headerNotifyGrow ease-in 0.25s;
     display: none;
-    z-index: 1;
+    z-index: 2;
 }
 
 .header__notify::before {
@@ -470,6 +470,16 @@
     margin: 0 8px;
 }
 
+.header__mobile-search {
+    padding: 0 12px;
+    display: none;
+}
+
+.header__mobile-search-icon {
+    font-size: 2.6rem;
+    color: var(--white-color);
+}
+
 .header__logo {
     width: 200px;
 }
@@ -477,6 +487,8 @@
 .header__logo-link {
     text-decoration: none;
     color: transparent;
+    display: block;
+    line-height: 0;
 }
 
 .header__logo-img {
@@ -490,6 +502,7 @@
     border-radius: 2px;
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 
 .header__cart {
@@ -502,6 +515,7 @@
     display: inline-block;
     padding: 0 12px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .header__cart-wrap:hover .header__cart-list {
@@ -767,7 +781,7 @@
 .header__cart-list-item {
     padding-left: 0;
     list-style: none;
-    height: 50vh;
+    max-height: 50vh;
     overflow-y: scroll;
 }
 
@@ -864,8 +878,53 @@
     opacity: 0.8;
 }
 
+.header__sort-bar {
+    position: fixed;
+    top:var(--header-height);
+    left: 0;
+    right: 0;
+    height: var(--header-sort-bar-height);
+    background-color: var(--white-color);
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    display: none;
+}
 
+.header__sort-item {
+    flex: 1;
+}
 
+.header__sort-item:first-child .header__sort-link::before {
+    display: none;
+}
 
+.header__sort-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    display: block;
+    height: 100%;
+    line-height: var(--header-sort-bar-height);
+    text-align: center;
+    position: relative;
+}
+
+.header__sort-link::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 60%;
+    border-left: 1px solid #ccc;
+    transform: translateY(-50%);
+}
+
+.header__sort-item--active .header__sort-link {
+    color: var(--primary-color);
+}
 
 
